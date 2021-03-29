@@ -18,10 +18,11 @@ public class OAuthConfigurer extends WebSecurityConfigurerAdapter {
                         .antMatchers("/", "/error", "/webjars/**").permitAll()
                         .anyRequest().authenticated()
                 )
+                .csrf().disable()
                 .exceptionHandling(e -> e
                         .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
                 )
-                .logout(I -> I
+                .logout(l -> l
                         .logoutSuccessUrl("/").permitAll()
                 )
                 .oauth2Login();

@@ -19,22 +19,26 @@
     <div class = "container authenticated">
         로그인 : <span id = "user"> </span>
         <div>
-            <button onClick = "logout()"class = "btn btn-primary"> 로그 아웃 </button >
+            <button onClick = "logout()"class = "btn btn-primary"> 로그아웃 </button >
         </div>
     </div>
 </body>
 <script type="text/javascript">
+    $(".authenticated").hide();
+
     $.get("/user", function(data) {
         $("#user").html(data.name);
-        $(".unauthenticated").hide()
-        $(".authenticated").show()
+        $(".unauthenticated").hide();
+        $(".authenticated").show();
     });
     var logout = function() {
-        $.post ( "/logout", function() {
-            $( "#user").html( '');
-            $( ".unauthenticated").show();
-            $( ".authenticationd ").hide();
+        $.post("/logout", function() {
+            console.log("요청 전달");
+            $("#user").html('');
+            $(".unauthenticated").show();
+            $(".authenticated").hide();
         })
+        return true;
     }
 </script>
 </html>
