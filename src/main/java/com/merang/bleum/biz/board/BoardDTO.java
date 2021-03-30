@@ -9,4 +9,5 @@ public class BoardDTO {
     private final String title;
     private final String contents;
     private final int like;
+
 }

@@ -5,8 +5,13 @@ import org.springframework.stereotype.Service;
 
 @Service("userService")
 public class UserServiceImpl implements UserService{
+    private final UserDAO userDAO;
+
     @Autowired
-    private UserDAO userDAO;
+    public UserServiceImpl(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
+
 
     @Override
     public void insertUser(UserDTO dto) {
@@ -16,5 +21,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserDTO getUser(UserDTO dto) {
         return userDAO.getUser(dto);
+    }
+
+    @Override
+    public boolean existUser(UserDTO dto) {
+        return userDAO.existUser(dto);
     }
 }

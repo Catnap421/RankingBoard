@@ -1,6 +1,8 @@
 package com.merang.bleum.biz.user;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -11,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 // DAO(Data Access Object)
+@Slf4j
 @Repository
 public class UserDAO {
     // JDBC 관련 변수
@@ -18,13 +21,18 @@ public class UserDAO {
     private PreparedStatement stmt = null;
     private ResultSet rs = null;
 
+    private final JdbcTemplate jdbcTemplate;
+
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    public UserDAO(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
 
     // SQL 명령어들
-    private final String USER_GET = "select * from users where email=?";
-    private final String USER_INSERT = "insert into users(id, email, nickname, birth) values(?,?,?,?)";
-
+    private final String USER_GET = "select * from ranking_user where email=?";
+    private final String USER_INSERT = "insert into ranking_user(id, email, nickname, birth) values(?,?,?,?)";
+    private final String USER_EXIST = "select count(*) from ranking_user where email=?";
     // CRUD 기능의 메소드 구현
     // 회원 등록
     public void insertUser(UserDTO dto) {
@@ -38,6 +46,13 @@ public class UserDAO {
         UserDTO user = jdbcTemplate.queryForObject(USER_GET, new UserRowMapper(), args);
         System.out.println("===> user: " + user);
         return user;
+    }
+
+    public boolean existUser(UserDTO dto) {
+        log.info("===> JDBC로 existUser() 기능 처리");
+        Object[] args = {dto.getEmail()};
+        int count = jdbcTemplate.queryForObject(USER_EXIST, Integer.class, args);
+        return count > 0;
     }
 }
 
