@@ -28,7 +28,6 @@ public class UserController {
     }
 
 
-
     /** index.html에서 ajax로 호출 **/
     @GetMapping("/user")
     @ResponseBody

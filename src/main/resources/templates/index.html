@@ -13,13 +13,15 @@
 </head>
 <body>
     <h1>Demo</h1>
-    <div class="container unauthenticated">
-        With Google: <a href="/oauth2/authorization/google">click here</a>
+    <div class="container unauthenticated align-content-center">
+        <button onclick="location.href='/oauth2/authorization/google'" class="btn btn-primary">Login with Google</button>
     </div>
     <div class = "container authenticated">
         로그인 : <span id = "user"> </span>
         <div>
             <button onClick = "logout()"class = "btn btn-primary"> 로그아웃 </button >
+            <button onClick = "location.href='/home'"class = "btn btn-primary"> 게시글 목록으로 </button >
+
         </div>
     </div>
 </body>
