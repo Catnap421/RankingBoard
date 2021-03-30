@@ -4,10 +4,12 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @Data // getter & setter 생성 
-@RequiredArgsConstructor
 public class BoardDTO {
-    private final String title;
-    private final String contents;
-    private final int like;
-
+    private int seq;
+    private String title;
+    private String contents;
+    private String writer;
+    private String imagePath;
+    private int like;
+    private int pageView;
 }
