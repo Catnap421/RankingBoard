@@ -1,8 +1,7 @@
-package com.merang.bleum.view.user;
+package com.bleum.view.user;
 
-import com.merang.bleum.biz.user.UserDAO;
-import com.merang.bleum.biz.user.UserDTO;
-import com.merang.bleum.biz.user.UserService;
+import com.bleum.biz.user.UserDTO;
+import com.bleum.biz.user.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

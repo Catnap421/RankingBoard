@@ -1,4 +1,4 @@
-package com.merang.bleum.biz.user;
+package com.bleum.biz.user;
 
 import lombok.Data;
 

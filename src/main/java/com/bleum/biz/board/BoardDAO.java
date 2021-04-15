@@ -1,6 +1,5 @@
-package com.merang.bleum.biz.board;
+package com.bleum.biz.board;
 
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 

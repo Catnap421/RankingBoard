@@ -1,4 +1,4 @@
-package com.merang.bleum;
+package com.bleum;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,7 +1,6 @@
-package com.merang.bleum.biz.board;
+package com.bleum.biz.board;
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 @Data // getter & setter 생성 
 public class BoardDTO {

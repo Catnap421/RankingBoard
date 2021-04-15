@@ -1,4 +1,4 @@
-package com.merang.bleum.biz.user;
+package com.bleum.biz.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

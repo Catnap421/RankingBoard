@@ -1,11 +1,6 @@
-package com.merang.bleum.view.board;
+package com.bleum.view.board;
 
-import com.merang.bleum.biz.board.BoardDAO;
-import com.merang.bleum.biz.board.BoardDTO;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class BoardController {
